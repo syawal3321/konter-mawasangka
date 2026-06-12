@@ -2,255 +2,849 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konter Mawasangka | E-Shop & Service Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Konter Mawasangka | E-Shop & Service Center Professional</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafc;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        /* HEADER BARU */
+        .header {
+            background: #0f172a;
+            padding: 1rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .logo h2 {
+            color: #facc15;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+
+        .navbar a:hover {
+            color: #facc15;
+            transform: translateY(-2px);
+        }
+
+        .wa-header {
+            background: #25D366;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .wa-header:hover {
+            background: #128C7E;
+            transform: scale(1.02);
+        }
+
+        .cart-icon button {
+            background: #334155;
+            border: none;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .cart-icon button:hover {
+            background: #facc15;
+            color: #0f172a;
+        }
+
+        #cartCount {
+            background: #facc15;
+            color: #0f172a;
+            border-radius: 50%;
+            padding: 0px 7px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* HERO SECTION (2 kolom) */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3rem 5%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            gap: 2rem;
+        }
+
+        .hero-left {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .badge {
+            background: #facc15;
+            color: #0f172a;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero-left h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-left p {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #facc15;
+            color: #0f172a;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            background: #eab308;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #facc15;
+            color: #facc15;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: #facc15;
+            color: #0f172a;
+            transform: translateY(-3px);
+        }
+
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-right img {
+            max-width: 100%;
+            width: 320px;
+            filter: drop-shadow(0 20px 25px -5px rgba(0,0,0,0.5));
+        }
+
+        /* KATEGORI */
+        #kategori {
+            padding: 4rem 5%;
+            background: white;
+            text-align: center;
+        }
+
+        #kategori h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #0f172a;
+            position: relative;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.8rem;
+        }
+
+        .category-card {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 24px;
+            width: 120px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            background: #facc15;
+            color: #0f172a;
+        }
+
+        .category-card h3 {
+            font-size: 1rem;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .category-card div {
+            font-size: 2.5rem;
+        }
+
+        /* STATS */
+        .stats {
+            background: #0f172a;
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            padding: 3rem 5%;
+            gap: 2rem;
+        }
+
+        .stats div {
+            flex: 1;
+        }
+
+        .stats h2 {
+            font-size: 2.5rem;
+            color: #facc15;
+            font-weight: 800;
+        }
+
+        .stats p {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* SEARCH */
+        .search-section {
+            padding: 2rem 5% 0.5rem 5%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 60px;
+            border: 2px solid #e2e8f0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        #searchInput:focus {
+            border-color: #facc15;
+            box-shadow: 0 0 0 3px rgba(250,204,21,0.2);
+        }
+
+        /* PRODUK */
+        .produk-section {
+            padding: 2rem 5% 4rem;
+        }
+
+        .produk-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
+            transition: 0.2s;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+
+        .product-img {
+            font-size: 4rem;
+            background: #f1f5f9;
+            border-radius: 40px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .price {
+            color: #facc15;
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+
+        .add-to-cart {
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .add-to-cart:hover {
+            background: #facc15;
+            color: #0f172a;
+        }
+
+        /* SERVICE SECTION */
+        .service-section, .about-section, .contact-section {
+            padding: 4rem 5%;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: #f8fafc;
+            padding: 2rem 1rem;
+            border-radius: 28px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+
+        .service-card:hover {
+            background: #fef9e3;
+            transform: scale(1.02);
+        }
+
+        .about-section p {
+            max-width: 700px;
+            margin: 1rem auto;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .contact-box {
+            background: #f1f5f9;
+            padding: 2rem;
+            border-radius: 32px;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .wa-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* MODAL CART */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 32px;
+            padding: 1.5rem;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.8rem;
+        }
+
+        .cart-header button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        #cartItems {
+            margin: 1rem 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cart-footer {
+            text-align: right;
+            margin-top: 1rem;
+        }
+
+        #checkoutBtn {
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                gap: 1rem;
+                justify-content: center;
+            }
+            .hero-left h1 {
+                font-size: 2.2rem;
+            }
+            .hero-left p {
+                max-width: 100%;
+            }
+            .stats h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- HEADER -->
-
+<!-- HEADER BARU -->
 <header class="header">
-
     <div class="logo">
-        <h2>📱 Konter Mawasangka</h2>
+        <h2>Konter Mawasangka</h2>
     </div>
-
     <nav class="navbar">
-
         <a href="#home">Beranda</a>
+        <a href="#kategori">Kategori</a>
         <a href="#produk">Produk</a>
-        <a href="#service">Servis</a>
-        <a href="#tentang">Tentang</a>
         <a href="#kontak">Kontak</a>
-
     </nav>
-
+    <a href="https://wa.me/6287833718917" class="wa-header" target="_blank">💬 WhatsApp</a>
     <div class="cart-icon">
-
-        <button id="cartBtn">
-            🛒 Keranjang
-            <span id="cartCount">0</span>
-        </button>
-
+        <button id="cartBtn">🛒 Keranjang <span id="cartCount">0</span></button>
     </div>
-
 </header>
 
-<!-- HERO -->
-
+<!-- HERO NEW 2 KOLOM -->
 <section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <h1>
-            Servis HP & Aksesoris Terlengkap
-        </h1>
-
-        <p>
-            Ganti LCD, Baterai, Flashing, Charger,
-            hingga penjualan aksesoris smartphone
-            berkualitas dengan harga terjangkau.
-        </p>
-
-        <a href="#produk" class="btn-primary">
-            Lihat Produk
-        </a>
-
+    <div class="hero-left">
+        <span class="badge">Service HP Profesional</span>
+        <h1>Konter Mawasangka</h1>
+        <p>Ganti LCD, Baterai, Flashing, dan Aksesoris Smartphone di Teluk Wondama. Cepat, Bergaransi, dan Terpercaya.</p>
+        <div class="hero-buttons">
+            <a href="#produk" class="btn-primary">Lihat Produk</a>
+            <a href="https://wa.me/6287833718917" class="btn-secondary" target="_blank">Chat WhatsApp</a>
+        </div>
     </div>
-
+    <div class="hero-right">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%231e293b'/%3E%3Cpath fill='%23facc15' d='M70 50h60c8 0 15 7 15 15v70c0 8-7 15-15 15H70c-8 0-15-7-15-15V65c0-8 7-15 15-15z'/%3E%3Ccircle cx='100' cy='140' r='12' fill='%230f172a'/%3E%3Crect x='85' y='70' width='30' height='40' fill='%230f172a'/%3E%3C/svg%3E" alt="Smartphone">
+    </div>
 </section>
 
-<!-- SEARCH -->
+<!-- KATEGORI -->
+<section id="kategori">
+    <h2>📂 Kategori Unggulan</h2>
+    <div class="categories">
+        <div class="category-card" data-category="lcd">📱<h3>LCD</h3></div>
+        <div class="category-card" data-category="baterai">🔋<h3>Baterai</h3></div>
+        <div class="category-card" data-category="charger">⚡<h3>Charger</h3></div>
+        <div class="category-card" data-category="headset">🎧<h3>Headset</h3></div>
+        <div class="category-card" data-category="service">🛠<h3>Service</h3></div>
+    </div>
+</section>
 
+<!-- STATISTIK -->
+<section class="stats">
+    <div><h2>500+</h2><p>HP Diperbaiki</p></div>
+    <div><h2>4+</h2><p>Tahun Pengalaman</p></div>
+    <div><h2>100%</h2><p>Garansi Service</p></div>
+</section>
+
+<!-- SEARCH PRODUK -->
 <section class="search-section">
-
-    <input
-        type="text"
-        id="searchInput"
-        placeholder="Cari produk..."
-    >
-
+    <input type="text" id="searchInput" placeholder="Cari produk aksesoris, charger, atau case...">
 </section>
 
 <!-- PRODUK -->
-
 <section class="produk-section" id="produk">
-
-    <h2>Katalog Produk</h2>
-
-    <div class="product-grid" id="productGrid">
-
-        <!-- Produk dari JavaScript -->
-
-    </div>
-
+    <h2>✨ Katalog Produk</h2>
+    <div class="product-grid" id="productGrid"></div>
 </section>
 
-<!-- LAYANAN -->
-
+<!-- LAYANAN SERVIS -->
 <section class="service-section" id="service">
-
-    <h2>Layanan Servis</h2>
-
+    <h2>🔧 Layanan Servis</h2>
     <div class="service-grid">
-
-        <div class="service-card">
-            <h3>Ganti LCD</h3>
-            <p>
-                LCD pecah, blank,
-                touchscreen error,
-                atau bergaris.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <h3>Ganti Baterai</h3>
-            <p>
-                Baterai cepat habis,
-                kembung, panas,
-                atau drop.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <h3>Perbaikan Charging</h3>
-            <p>
-                Port charger rusak
-                atau tidak mengisi daya.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <h3>Flashing & Software</h3>
-            <p>
-                Bootloop,
-                lupa pola,
-                update sistem.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <h3>Speaker & Mic</h3>
-            <p>
-                Suara kecil,
-                pecah,
-                atau tidak berfungsi.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <h3>Servis Umum</h3>
-            <p>
-                Semua jenis kerusakan
-                smartphone Android dan iPhone.
-            </p>
-        </div>
-
+        <div class="service-card"><h3>Ganti LCD</h3><p>LCD pecah, blank, touch error.</p></div>
+        <div class="service-card"><h3>Ganti Baterai</h3><p>Cepat habis, kembung, drop.</p></div>
+        <div class="service-card"><h3>Perbaikan Charging</h3><p>Port rusak, tidak mengisi.</p></div>
+        <div class="service-card"><h3>Flashing & Software</h3><p>Bootloop, lupa pola, update.</p></div>
+        <div class="service-card"><h3>Speaker & Mic</h3><p>Suara kecil, pecah.</p></div>
+        <div class="service-card"><h3>Servis Umum</h3><p>Semua jenis HP Android/iPhone.</p></div>
     </div>
-
 </section>
 
 <!-- TENTANG -->
-
 <section class="about-section" id="tentang">
-
     <h2>Tentang Kami</h2>
-
-    <p>
-        Konter Mawasangka adalah pusat servis
-        smartphone dan penjualan aksesoris
-        yang melayani pelanggan dengan cepat,
-        profesional, dan bergaransi.
-    </p>
-
+    <p>Konter Mawasangka adalah pusat servis smartphone dan penjualan aksesoris terlengkap di Teluk Wondama, Papua Barat. Kami mengutamakan kecepatan, kejujuran, dan garansi servis untuk setiap pelanggan.</p>
 </section>
 
 <!-- KONTAK -->
-
 <section class="contact-section" id="kontak">
-
-    <h2>Hubungi Kami</h2>
-
+    <h2>📞 Hubungi Kami</h2>
     <div class="contact-box">
-
-        <p>
-            <strong>WhatsApp:</strong>
-            +62 878-3371-8917
-        </p>
-
-        <p>
-            <strong>Alamat:</strong>
-            Manggurai, Teluk Wondama,
-            Papua Barat
-        </p>
-
-        <a
-        class="wa-btn"
-        href="https://wa.me/6287833718917"
-        target="_blank">
-
-            Chat WhatsApp
-
-        </a>
-
+        <p><strong>WhatsApp:</strong> +62 878-3371-8917</p>
+        <p><strong>Alamat:</strong> Manggurai, Teluk Wondama, Papua Barat</p>
+        <a class="wa-btn" href="https://wa.me/6287833718917" target="_blank">Chat WhatsApp</a>
     </div>
-
 </section>
 
-<!-- CART -->
-
+<!-- MODAL KERANJANG -->
 <div class="cart-modal" id="cartModal">
-
     <div class="cart-content">
-
-        <div class="cart-header">
-
-            <h2>Keranjang Belanja</h2>
-
-            <button id="closeCart">
-                ✖
-            </button>
-
-        </div>
-
-        <div id="cartItems">
-
-        </div>
-
-        <div class="cart-footer">
-
-            <h3>
-                Total:
-                Rp <span id="cartTotal">0</span>
-            </h3>
-
-            <button id="checkoutBtn">
-                Checkout WhatsApp
-            </button>
-
-        </div>
-
+        <div class="cart-header"><h2>Keranjang Belanja</h2><button id="closeCart">✖</button></div>
+        <div id="cartItems"></div>
+        <div class="cart-footer"><h3>Total: Rp <span id="cartTotal">0</span></h3><button id="checkoutBtn">✅ Checkout WhatsApp</button></div>
     </div>
-
 </div>
 
-<!-- FOOTER -->
-
 <footer>
-
-    <p>
-        © 2026 Konter Mawasangka
-        | E-Shop & Service Center
-    </p>
-
+    <p>© 2026 Konter Mawasangka | E-Shop & Service Center | Solusi HP Anda</p>
 </footer>
 
-<script src="app.js"></script>
+<script>
+    // DATA PRODUK (aksesoris & suku cadang)
+    const products = [
+        { id: 1, name: "LCD Samsung A12", price: 380000, category: "lcd", image: "📱", desc: "LCD original quality" },
+        { id: 2, name: "Baterai iPhone 11", price: 250000, category: "baterai", image: "🔋", desc: "Kapasitas 3110mAh" },
+        { id: 3, name: "Fast Charger 20W", price: 85000, category: "charger", image: "⚡", desc: "PD + QC" },
+        { id: 4, name: "Headset Bluetooth", price: 120000, category: "headset", image: "🎧", desc: "TWS Stereo" },
+        { id: 5, name: "Service Ganti LCD", price: 150000, category: "service", image: "🛠", desc: "Jasa + sparepart" },
+        { id: 6, name: "Power Bank 10000mAh", price: 185000, category: "charger", image: "🔋", desc: "Dual input" },
+        { id: 7, name: "Softcase iPhone", price: 35000, category: "aksesoris", image: "📱", desc: "Anti gores" },
+        { id: 8, name: "Kabel USB Type-C", price: 25000, category: "charger", image: "🔌", desc: "1 meter" },
+        { id: 9, name: "Tempered Glass", price: 30000, category: "aksesoris", image: "🛡️", desc: "Anti pecah" },
+    ];
 
+    let cart = [];
+    let filteredProducts = [...products];
+
+    // DOM elements
+    const productGrid = document.getElementById('productGrid');
+    const searchInput = document.getElementById('searchInput');
+    const cartBtn = document.getElementById('cartBtn');
+    const cartModal = document.getElementById('cartModal');
+    const closeCart = document.getElementById('closeCart');
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartTotalSpan = document.getElementById('cartTotal');
+    const cartCountSpan = document.getElementById('cartCount');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+
+    // Render produk ke grid
+    function renderProducts() {
+        if (!productGrid) return;
+        productGrid.innerHTML = '';
+        filteredProducts.forEach(prod => {
+            const card = document.createElement('div');
+            card.classList.add('product-card');
+            card.innerHTML = `
+                <div class="product-img">${prod.image}</div>
+                <h3>${prod.name}</h3>
+                <div class="price">Rp ${prod.price.toLocaleString('id-ID')}</div>
+                <p style="font-size: 0.75rem; color:#64748b;">${prod.desc}</p>
+                <button class="add-to-cart" data-id="${prod.id}">+ Tambah ke Keranjang</button>
+            `;
+            productGrid.appendChild(card);
+        });
+
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.getAttribute('data-id'));
+                addToCart(id);
+            });
+        });
+    }
+
+    // Filter berdasarkan search
+    function filterProducts() {
+        const keyword = searchInput.value.toLowerCase();
+        filteredProducts = products.filter(p => p.name.toLowerCase().includes(keyword) || p.category.includes(keyword));
+        renderProducts();
+    }
+
+    searchInput.addEventListener('input', filterProducts);
+
+    // Tambah ke keranjang
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        if (!product) return;
+        const existing = cart.find(item => item.id === productId);
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            cart.push({ ...product, qty: 1 });
+        }
+        updateCartUI();
+        showToast(`${product.name} ditambahkan!`);
+    }
+
+    function updateCartUI() {
+        // update count
+        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCountSpan.innerText = totalItems;
+        // update modal jika terbuka
+        if (cartModal.style.display === 'flex') renderCartModal();
+    }
+
+    function renderCartModal() {
+        if (!cartItemsDiv) return;
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = '<p style="text-align:center; padding:2rem;">Keranjang kosong</p>';
+            cartTotalSpan.innerText = '0';
+            return;
+        }
+        let html = '';
+        let total = 0;
+        cart.forEach(item => {
+            const subtotal = item.price * item.qty;
+            total += subtotal;
+            html += `
+                <div class="cart-item">
+                    <div><strong>${item.name}</strong><br>Rp ${item.price.toLocaleString('id-ID')} x ${item.qty}</div>
+                    <div>Rp ${subtotal.toLocaleString('id-ID')} 
+                        <button class="remove-item" data-id="${item.id}" style="background:#ef4444; border:none; border-radius:30px; color:white; padding:4px 10px; margin-left:8px; cursor:pointer;">Hapus</button>
+                    </div>
+                </div>
+            `;
+        });
+        cartItemsDiv.innerHTML = html;
+        cartTotalSpan.innerText = total.toLocaleString('id-ID');
+
+        document.querySelectorAll('.remove-item').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.getAttribute('data-id'));
+                removeFromCart(id);
+            });
+        });
+    }
+
+    function removeFromCart(id) {
+        const index = cart.findIndex(i => i.id === id);
+        if (index !== -1) {
+            if (cart[index].qty > 1) cart[index].qty -= 1;
+            else cart.splice(index, 1);
+        }
+        updateCartUI();
+        renderCartModal();
+    }
+
+    function showToast(msg) {
+        const toast = document.createElement('div');
+        toast.innerText = msg;
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.left = '50%';
+        toast.style.transform = 'translateX(-50%)';
+        toast.style.backgroundColor = '#0f172a';
+        toast.style.color = '#facc15';
+        toast.style.padding = '10px 20px';
+        toast.style.borderRadius = '40px';
+        toast.style.fontWeight = 'bold';
+        toast.style.zIndex = '1200';
+        toast.style.fontSize = '0.9rem';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2000);
+    }
+
+    // Checkout ke WhatsApp
+    function checkoutToWhatsApp() {
+        if (cart.length === 0) {
+            alert("Keranjang masih kosong!");
+            return;
+        }
+        let message = "Halo Konter Mawasangka!%0A%0ASaya ingin memesan:%0A";
+        let total = 0;
+        cart.forEach(item => {
+            const sub = item.price * item.qty;
+            total += sub;
+            message += `- ${item.name} (${item.qty}x) = Rp ${sub.toLocaleString('id-ID')}%0A`;
+        });
+        message += `%0A*Total: Rp ${total.toLocaleString('id-ID')}*%0A%0ATolong informasi pembayaran dan estimasi. Terima kasih.`;
+        const waNumber = "6287833718917";
+        const url = `https://wa.me/${waNumber}?text=${message}`;
+        window.open(url, '_blank');
+    }
+
+    // Event Modal
+    cartBtn.addEventListener('click', () => {
+        renderCartModal();
+        cartModal.style.display = 'flex';
+    });
+    closeCart.addEventListener('click', () => cartModal.style.display = 'none');
+    window.addEventListener('click', (e) => {
+        if (e.target === cartModal) cartModal.style.display = 'none';
+    });
+    checkoutBtn.addEventListener('click', checkoutToWhatsApp);
+
+    // Filter kategori dengan klik category-card (scroll ke produk)
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            const category = card.getAttribute('data-category');
+            if (category) {
+                const filtered = products.filter(p => p.category === category);
+                if (filtered.length) {
+                    filteredProducts = filtered;
+                    renderProducts();
+                    document.getElementById('produk').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    filteredProducts = products;
+                    renderProducts();
+                }
+                if (searchInput) searchInput.value = '';
+            }
+        });
+    });
+
+    // Initial render
+    renderProducts();
+
+    // handle tombol reset ke semua produk jika klik "Produk" di navbar biar full
+    const navProduk = document.querySelector('a[href="#produk"]');
+    if (navProduk) {
+        navProduk.addEventListener('click', (e) => {
+            filteredProducts = [...products];
+            renderProducts();
+            if (searchInput) searchInput.value = '';
+        });
+    }
+    // Beranda reset filter juga
+    const navHome = document.querySelector('a[href="#home"]');
+    if (navHome) {
+        navHome.addEventListener('click', () => {
+            filteredProducts = [...products];
+            renderProducts();
+            if (searchInput) searchInput.value = '';
+        });
+    }
+    // Kategori navbar juga reset?
+    document.querySelectorAll('.navbar a').forEach(link => {
+        if(link.getAttribute('href') === '#kategori') {
+            link.addEventListener('click', () => {
+                // tidak reset produk, biarkan seperti sedia kala
+            });
+        }
+    });
+</script>
 </body>
 </html>
+```

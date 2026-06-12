@@ -1,0 +1,431 @@
+/* =========================
+   KONTER MAWASANGKA E-SHOP
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+}
+
+/* HEADER */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 40px;
+
+    background:#0f172a;
+    color:#fff;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+.logo h2{
+    font-size:24px;
+}
+
+.navbar{
+    display:flex;
+    gap:20px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#38bdf8;
+}
+
+.cart-icon button{
+    border:none;
+    background:#2563eb;
+    color:white;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#cartCount{
+    background:red;
+    padding:2px 8px;
+    border-radius:50%;
+    margin-left:5px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:85vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:20px;
+
+    background:linear-gradient(
+    135deg,
+    #2563eb,
+    #06b6d4
+    );
+
+    color:white;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.btn-primary{
+    text-decoration:none;
+    background:white;
+    color:#2563eb;
+    padding:14px 28px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+/* SEARCH */
+
+.search-section{
+    padding:30px;
+    text-align:center;
+}
+
+#searchInput{
+    width:90%;
+    max-width:600px;
+
+    padding:15px;
+
+    border:1px solid #ddd;
+    border-radius:10px;
+
+    font-size:16px;
+}
+
+/* SECTION */
+
+.produk-section,
+.service-section,
+.about-section,
+.contact-section{
+
+    max-width:1200px;
+    margin:auto;
+
+    padding:70px 20px;
+}
+
+.produk-section h2,
+.service-section h2,
+.about-section h2,
+.contact-section h2{
+
+    text-align:center;
+    margin-bottom:40px;
+
+    color:#2563eb;
+}
+
+/* PRODUCT GRID */
+
+.product-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+}
+
+.product-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+.product-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+
+    border-radius:10px;
+}
+
+.product-card h3{
+    margin-top:15px;
+}
+
+.product-card p{
+    margin:10px 0;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+.product-card button{
+
+    width:100%;
+
+    border:none;
+
+    background:#2563eb;
+    color:white;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+/* SERVICE */
+
+.service-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+}
+
+.service-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+}
+
+.service-card h3{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+/* ABOUT */
+
+.about-section p{
+
+    max-width:800px;
+
+    margin:auto;
+
+    text-align:center;
+
+    line-height:1.8;
+}
+
+/* CONTACT */
+
+.contact-box{
+
+    max-width:600px;
+
+    margin:auto;
+
+    text-align:center;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+}
+
+.contact-box p{
+    margin-bottom:15px;
+}
+
+.wa-btn{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    text-decoration:none;
+
+    background:#25D366;
+
+    color:white;
+
+    padding:14px 25px;
+
+    border-radius:10px;
+}
+
+/* CART MODAL */
+
+.cart-modal{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.5);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.cart-content{
+
+    width:90%;
+    max-width:500px;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:20px;
+}
+
+.cart-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.cart-header button{
+
+    border:none;
+
+    background:red;
+
+    color:white;
+
+    padding:8px 12px;
+
+    cursor:pointer;
+
+    border-radius:5px;
+}
+
+.cart-footer{
+
+    margin-top:20px;
+}
+
+.cart-footer button{
+
+    width:100%;
+
+    border:none;
+
+    background:#25D366;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+
+    margin-top:50px;
+
+    background:#0f172a;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .navbar{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:2rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+}

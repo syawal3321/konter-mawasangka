@@ -6,7 +6,9 @@
     <title>Konter Mawasangka | E-Shop & Service Center Professional</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <style>
+        /* Fallback styles jika file CSS eksternal tidak terbaca, tetap aman */
         * {
             margin: 0;
             padding: 0;
@@ -622,8 +624,9 @@
     <p>© 2026 Konter Mawasangka | E-Shop & Service Center | Solusi HP Anda</p>
 </footer>
 
+<script src="js/app.js"></script>
 <script>
-    // DATA PRODUK (aksesoris & suku cadang)
+    // DATA PRODUK (aksesoris & suku cadang) - fallback jika app.js tidak berfungsi
     const products = [
         { id: 1, name: "LCD Samsung A12", price: 380000, category: "lcd", image: "📱", desc: "LCD original quality" },
         { id: 2, name: "Baterai iPhone 11", price: 250000, category: "baterai", image: "🔋", desc: "Kapasitas 3110mAh" },
@@ -699,10 +702,8 @@
     }
 
     function updateCartUI() {
-        // update count
         const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
         cartCountSpan.innerText = totalItems;
-        // update modal jika terbuka
         if (cartModal.style.display === 'flex') renderCartModal();
     }
 
@@ -766,7 +767,6 @@
         setTimeout(() => toast.remove(), 2000);
     }
 
-    // Checkout ke WhatsApp
     function checkoutToWhatsApp() {
         if (cart.length === 0) {
             alert("Keranjang masih kosong!");
@@ -785,7 +785,6 @@
         window.open(url, '_blank');
     }
 
-    // Event Modal
     cartBtn.addEventListener('click', () => {
         renderCartModal();
         cartModal.style.display = 'flex';
@@ -796,7 +795,6 @@
     });
     checkoutBtn.addEventListener('click', checkoutToWhatsApp);
 
-    // Filter kategori dengan klik category-card (scroll ke produk)
     document.querySelectorAll('.category-card').forEach(card => {
         card.addEventListener('click', (e) => {
             const category = card.getAttribute('data-category');
@@ -815,10 +813,8 @@
         });
     });
 
-    // Initial render
     renderProducts();
 
-    // handle tombol reset ke semua produk jika klik "Produk" di navbar biar full
     const navProduk = document.querySelector('a[href="#produk"]');
     if (navProduk) {
         navProduk.addEventListener('click', (e) => {
@@ -827,7 +823,6 @@
             if (searchInput) searchInput.value = '';
         });
     }
-    // Beranda reset filter juga
     const navHome = document.querySelector('a[href="#home"]');
     if (navHome) {
         navHome.addEventListener('click', () => {
@@ -836,14 +831,6 @@
             if (searchInput) searchInput.value = '';
         });
     }
-    // Kategori navbar juga reset?
-    document.querySelectorAll('.navbar a').forEach(link => {
-        if(link.getAttribute('href') === '#kategori') {
-            link.addEventListener('click', () => {
-                // tidak reset produk, biarkan seperti sedia kala
-            });
-        }
-    });
 </script>
 </body>
 </html>

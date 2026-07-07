@@ -6,321 +6,112 @@
   <title>Konter Mawasangka | Service HP & Aksesoris — Teluk Wondama</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <style>
-    /* ===== RESET + BASE ===== */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.5;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    /* ===== HEADER ===== */
-    .header {
-      position: sticky; top: 0; z-index: 1000;
-      background: #0f172a;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px;
-      height: 60px;
-      gap: 12px;
-    }
-    .logo { font-size: 20px; font-weight: 700; color: #facc15; letter-spacing: -0.3px; }
-    .navbar { display: flex; gap: 24px; align-items: center; }
-    .navbar a {
-      color: #cbd5e1; font-size: 14px; font-weight: 500;
-      transition: color .2s; white-space: nowrap;
-    }
-    .navbar a:hover { color: #facc15; }
-    .header-actions { display: flex; gap: 8px; align-items: center; }
-    .wa-header {
-      background: #25D366; color: #fff; font-size: 13px; font-weight: 600;
-      padding: 8px 16px; border-radius: 999px;
-      display: flex; align-items: center; gap: 6px;
-      transition: background .2s;
-    }
-    .wa-header:hover { background: #128C7E; }
-    .cart-btn {
-      background: #1e293b; color: #f8fafc; border: none;
-      padding: 8px 16px; border-radius: 999px;
-      font-family: inherit; font-size: 13px; font-weight: 600;
-      cursor: pointer; display: flex; align-items: center; gap: 6px;
-      transition: background .2s;
-    }
-    .cart-btn:hover { background: #facc15; color: #0f172a; }
-    #cartCount {
-      background: #facc15; color: #0f172a;
-      border-radius: 999px; padding: 1px 7px;
-      font-size: 11px; font-weight: 700;
-    }
-
-    /* ===== HAMBURGER ===== */
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer; padding: 4px;
-    }
-    .hamburger span { width: 22px; height: 2px; background: #cbd5e1; border-radius: 2px; transition: .3s; }
-
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #fff;
-      padding: 60px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 40px;
-      min-height: 70vh;
-    }
-    .hero-left { flex: 1; min-width: 280px; }
-    .badge {
-      display: inline-block;
-      background: #facc15; color: #0f172a;
-      padding: 4px 14px; border-radius: 999px;
-      font-size: 12px; font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .hero-left h1 {
-      font-size: clamp(32px, 5vw, 56px); font-weight: 800;
-      line-height: 1.1; margin-bottom: 16px;
-    }
-    .hero-left p {
-      font-size: 16px; color: #94a3b8;
-      max-width: 520px; margin-bottom: 28px; line-height: 1.6;
-    }
-    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-primary {
-      background: #facc15; color: #0f172a;
-      padding: 12px 24px; border-radius: 999px;
-      font-weight: 700; font-size: 15px;
-      transition: transform .15s, background .2s;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: #eab308; transform: translateY(-2px); }
-    .btn-outline {
-      background: transparent; border: 2px solid #facc15; color: #facc15;
-      padding: 10px 24px; border-radius: 999px;
-      font-weight: 700; font-size: 15px;
-      transition: background .2s, transform .15s;
-      display: inline-block;
-    }
-    .btn-outline:hover { background: #facc15; color: #0f172a; transform: translateY(-2px); }
-    .hero-right { flex: 1; display: flex; justify-content: center; }
-    .hero-right svg { width: 280px; max-width: 100%; filter: drop-shadow(0 20px 30px rgba(0,0,0,.4)); }
-
-    /* ===== SECTIONS COMMON ===== */
-    section { padding: 60px 24px; max-width: 1200px; margin: 0 auto; }
-    section h2 {
-      text-align: center; font-size: clamp(24px, 3vw, 32px); font-weight: 700;
-      margin-bottom: 36px; color: #0f172a;
-    }
-
-    /* ===== KATEGORI ===== */
-    #kategori { background: #fff; max-width: 100%; }
-    #kategori .section-inner { max-width: 1200px; margin: 0 auto; }
-    .category-grid {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
-    }
-    .category-card {
-      background: #f1f5f9; border: none; border-radius: 20px;
-      padding: 20px 24px; min-width: 100px;
-      text-align: center; cursor: pointer;
-      transition: all .2s; font-family: inherit;
-      font-size: 14px; font-weight: 600; color: #1e293b;
-    }
-    .category-card:hover { background: #facc15; color: #0f172a; transform: translateY(-4px); }
-    .category-card .emoji { font-size: 28px; display: block; margin-bottom: 6px; }
-
-    /* ===== STATS ===== */
-    .stats {
-      background: #0f172a; max-width: 100%;
-      display: flex; flex-wrap: wrap; justify-content: space-around;
-      text-align: center; padding: 40px 24px; gap: 24px;
-    }
-    .stats-item h3 { font-size: 32px; color: #facc15; font-weight: 800; }
-    .stats-item p { color: #94a3b8; font-size: 14px; font-weight: 500; margin-top: 4px; }
-
-    /* ===== SEARCH ===== */
-    .search-bar {
-      max-width: 500px; margin: 0 auto 32px;
-      position: relative;
-    }
-    .search-bar input {
-      width: 100%; padding: 12px 20px; border-radius: 999px;
-      border: 2px solid #e2e8f0;
-      font-family: inherit; font-size: 15px;
-      outline: none; transition: border-color .2s;
-    }
-    .search-bar input:focus { border-color: #facc15; box-shadow: 0 0 0 3px rgba(250,204,21,.15); }
-
-    /* ===== PRODUCT GRID ===== */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .product-card {
-      background: #fff; border-radius: 20px;
-      padding: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.04);
-      transition: transform .2s, box-shadow .2s;
-      text-align: center;
-    }
-    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
-    .product-card .thumb {
-      width: 100%; height: 140px;
-      background: #f1f5f9; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 48px; margin-bottom: 12px;
-    }
-    .product-card .thumb svg { width: 100%; height: 100%; border-radius: 14px; }
-    .product-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-    .product-card .price {
-      color: #facc15; font-weight: 700; font-size: 18px;
-      margin: 4px 0 8px;
-    }
-    .product-card .desc { font-size: 12px; color: #64748b; margin-bottom: 12px; }
-    .product-card .add-btn {
-      width: 100%; padding: 10px;
-      border: none; border-radius: 999px;
-      background: #0f172a; color: #fff;
-      font-family: inherit; font-size: 13px; font-weight: 600;
-      cursor: pointer; transition: background .2s;
-    }
-    .product-card .add-btn:hover { background: #facc15; color: #0f172a; }
-
-    /* ===== SERVICE ===== */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    .service-card {
-      background: #fff; border-radius: 20px;
-      padding: 24px 16px; text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,.04);
-      transition: background .2s;
-    }
-    .service-card:hover { background: #fef9e3; }
-    .service-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-    .service-card p { font-size: 13px; color: #64748b; }
-
-    /* ===== ABOUT ===== */
-    .about-text { max-width: 700px; margin: 0 auto; text-align: center; }
-    .about-text p { font-size: 15px; color: #475569; line-height: 1.7; margin-bottom: 16px; }
-
-    /* ===== CONTACT ===== */
-    .contact-card {
-      max-width: 500px; margin: 0 auto;
-      background: #f1f5f9; border-radius: 24px; padding: 32px;
-      text-align: center;
-    }
-    .contact-card p { font-size: 14px; margin-bottom: 8px; color: #475569; }
-    .wa-btn {
-      display: inline-block;
-      background: #25D366; color: #fff;
-      padding: 12px 28px; border-radius: 999px;
-      font-weight: 700; font-size: 15px; margin-top: 16px;
-      transition: background .2s;
-    }
-    .wa-btn:hover { background: #128C7E; }
-
-    /* ===== CART MODAL ===== */
-    .cart-modal {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,.5);
-      display: none; justify-content: center; align-items: center;
-      z-index: 1100;
-    }
-    .cart-modal.open { display: flex; }
-    .cart-content {
-      background: #fff; border-radius: 24px; padding: 24px;
-      width: 90%; max-width: 480px; max-height: 80vh;
-      display: flex; flex-direction: column;
-    }
-    .cart-header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding-bottom: 16px; border-bottom: 1px solid #e2e8f0;
-    }
-    .cart-header h2 { font-size: 20px; margin: 0; }
-    .cart-header .close-btn {
-      background: none; border: none; font-size: 24px;
-      cursor: pointer; color: #94a3b8; padding: 4px;
-    }
-    .cart-header .close-btn:hover { color: #ef4444; }
-    .cart-body { flex: 1; overflow-y: auto; padding: 16px 0; }
-    .cart-empty { text-align: center; padding: 32px 0; color: #94a3b8; }
-    .cart-item {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 0; border-bottom: 1px solid #f1f5f9;
-    }
-    .cart-item-info { text-align: left; }
-    .cart-item-info strong { font-size: 14px; display: block; }
-    .cart-item-info small { font-size: 12px; color: #64748b; }
-    .cart-item-actions { display: flex; align-items: center; gap: 8px; }
-    .cart-item-actions .qty-btn {
-      background: #f1f5f9; border: none; width: 28px; height: 28px;
-      border-radius: 50%; cursor: pointer; font-weight: 700;
-      transition: background .2s;
-    }
-    .cart-item-actions .qty-btn:hover { background: #e2e8f0; }
-    .cart-item-actions .remove-btn {
-      background: none; border: none; color: #ef4444;
-      font-size: 18px; cursor: pointer; padding: 4px;
-    }
-    .cart-footer {
-      padding-top: 16px; border-top: 1px solid #e2e8f0;
-    }
-    .cart-total {
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 18px; font-weight: 700; margin-bottom: 12px;
-    }
-    .checkout-btn {
-      width: 100%; padding: 14px;
-      background: #25D366; color: #fff; border: none;
-      border-radius: 999px; font-family: inherit;
-      font-size: 16px; font-weight: 700; cursor: pointer;
-      transition: background .2s;
-    }
-    .checkout-btn:hover { background: #128C7E; }
-
-    /* ===== TOAST ===== */
-    .toast {
-      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-      background: #0f172a; color: #facc15;
-      padding: 12px 24px; border-radius: 999px;
-      font-weight: 600; font-size: 14px;
-      z-index: 1200;
-      animation: toastIn .3s ease;
-    }
-    @keyframes toastIn { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #0f172a; color: #64748b;
-      text-align: center; padding: 20px 24px;
-      font-size: 13px;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .hamburger { display: flex; }
-      .navbar {
-        position: fixed; top: 60px; left: 0; right: 0;
-        background: #0f172a; flex-direction: column; padding: 16px 24px;
-        gap: 12px; display: none; border-top: 1px solid #1e293b;
-      }
-      .navbar.open { display: flex; }
-      .hero { flex-direction: column; text-align: center; padding: 40px 20px; min-height: auto; }
-      .hero-left p { max-width: 100%; }
-      .hero-buttons { justify-content: center; }
-      .hero-right svg { width: 200px; }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .header{position:sticky;top:0;z-index:1000;background:#0f172a;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px;gap:12px}
+    .logo{font-size:20px;font-weight:700;color:#facc15;letter-spacing:-.3px}
+    .navbar{display:flex;gap:24px;align-items:center}
+    .navbar a{color:#cbd5e1;font-size:14px;font-weight:500;transition:color .2s;white-space:nowrap}
+    .navbar a:hover{color:#facc15}
+    .header-actions{display:flex;gap:8px;align-items:center}
+    .wa-header{background:#25D366;color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;display:flex;align-items:center;gap:6px;transition:background .2s}
+    .wa-header:hover{background:#128C7E}
+    .cart-btn{background:#1e293b;color:#f8fafc;border:none;padding:8px 16px;border-radius:999px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:background .2s}
+    .cart-btn:hover{background:#facc15;color:#0f172a}
+    #cartCount{background:#facc15;color:#0f172a;border-radius:999px;padding:1px 7px;font-size:11px;font-weight:700}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+    .hamburger span{width:22px;height:2px;background:#cbd5e1;border-radius:2px;transition:.3s}
+    .hero{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;padding:60px 24px;display:flex;align-items:center;justify-content:space-between;gap:40px;min-height:70vh}
+    .hero-left{flex:1;min-width:280px}
+    .badge{display:inline-block;background:#facc15;color:#0f172a;padding:4px 14px;border-radius:999px;font-size:12px;font-weight:600;margin-bottom:16px}
+    .hero-left h1{font-size:clamp(32px,5vw,56px);font-weight:800;line-height:1.1;margin-bottom:16px}
+    .hero-left p{font-size:16px;color:#94a3b8;max-width:520px;margin-bottom:28px;line-height:1.6}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:#facc15;color:#0f172a;padding:12px 24px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .15s,background .2s;display:inline-block}
+    .btn-primary:hover{background:#eab308;transform:translateY(-2px)}
+    .btn-outline{background:transparent;border:2px solid #facc15;color:#facc15;padding:10px 24px;border-radius:999px;font-weight:700;font-size:15px;transition:background .2s,transform .15s;display:inline-block}
+    .btn-outline:hover{background:#facc15;color:#0f172a;transform:translateY(-2px)}
+    .hero-right{flex:1;display:flex;justify-content:center}
+    .hero-right img{width:320px;max-width:100%;border-radius:20px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.4));object-fit:cover;aspect-ratio:4/3}
+    section{padding:60px 24px;max-width:1200px;margin:0 auto}
+    section h2{text-align:center;font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:36px;color:#0f172a}
+    #kategori{background:#fff;max-width:100%}
+    #kategori .section-inner{max-width:1200px;margin:0 auto}
+    .category-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+    .category-card{background:#f1f5f9;border:none;border-radius:20px;padding:20px 24px;min-width:100px;text-align:center;cursor:pointer;transition:all .2s;font-family:inherit;font-size:14px;font-weight:600;color:#1e293b}
+    .category-card:hover{background:#facc15;color:#0f172a;transform:translateY(-4px)}
+    .category-card .emoji{font-size:28px;display:block;margin-bottom:6px}
+    .stats{background:#0f172a;max-width:100%;display:flex;flex-wrap:wrap;justify-content:space-around;text-align:center;padding:40px 24px;gap:24px}
+    .stats-item h3{font-size:32px;color:#facc15;font-weight:800}
+    .stats-item p{color:#94a3b8;font-size:14px;font-weight:500;margin-top:4px}
+    .search-bar{max-width:500px;margin:0 auto 32px}
+    .search-bar input{width:100%;padding:12px 20px;border-radius:999px;border:2px solid #e2e8f0;font-family:inherit;font-size:15px;outline:none;transition:border-color .2s}
+    .search-bar input:focus{border-color:#facc15;box-shadow:0 0 0 3px rgba(250,204,21,.15)}
+    .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+    .product-card{background:#fff;border-radius:20px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.04);transition:transform .2s,box-shadow .2s;text-align:center}
+    .product-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.08)}
+    .product-card .thumb{width:100%;height:140px;background:#f1f5f9;border-radius:14px;overflow:hidden}
+    .product-card .thumb img{width:100%;height:100%;object-fit:cover}
+    .product-card h3{font-size:15px;font-weight:600;margin:10px 0 4px}
+    .product-card .price{color:#facc15;font-weight:700;font-size:18px;margin:4px 0 8px}
+    .product-card .desc{font-size:12px;color:#64748b;margin-bottom:12px}
+    .product-card .add-btn{width:100%;padding:10px;border:none;border-radius:999px;background:#0f172a;color:#fff;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
+    .product-card .add-btn:hover{background:#facc15;color:#0f172a}
+    .service-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+    .service-card{background:#fff;border-radius:20px;padding:24px 16px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.04);transition:background .2s}
+    .service-card:hover{background:#fef9e3}
+    .service-card h3{font-size:16px;font-weight:700;margin-bottom:6px}
+    .service-card p{font-size:13px;color:#64748b}
+    .about-text{max-width:700px;margin:0 auto;text-align:center}
+    .about-text p{font-size:15px;color:#475569;line-height:1.7;margin-bottom:16px}
+    .contact-row{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+    .contact-card{background:#f1f5f9;border-radius:24px;padding:32px;text-align:center}
+    .contact-card p{font-size:14px;margin-bottom:8px;color:#475569}
+    .wa-btn{display:inline-block;background:#25D366;color:#fff;padding:12px 28px;border-radius:999px;font-weight:700;font-size:15px;margin-top:16px;transition:background .2s}
+    .wa-btn:hover{background:#128C7E}
+    .maps-wrap{position:relative;overflow:hidden;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .maps-wrap iframe{width:100%;height:280px;border:0}
+    .cart-modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;justify-content:center;align-items:center;z-index:1100}
+    .cart-modal.open{display:flex}
+    .cart-content{background:#fff;border-radius:24px;padding:24px;width:90%;max-width:480px;max-height:80vh;display:flex;flex-direction:column}
+    .cart-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid #e2e8f0}
+    .cart-header h2{font-size:20px;margin:0}
+    .cart-header .close-btn{background:none;border:none;font-size:24px;cursor:pointer;color:#94a3b8;padding:4px}
+    .cart-header .close-btn:hover{color:#ef4444}
+    .cart-body{flex:1;overflow-y:auto;padding:16px 0}
+    .cart-empty{text-align:center;padding:32px 0;color:#94a3b8}
+    .cart-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f1f5f9}
+    .cart-item-info{text-align:left}
+    .cart-item-info strong{font-size:14px;display:block}
+    .cart-item-info small{font-size:12px;color:#64748b}
+    .cart-item-actions{display:flex;align-items:center;gap:8px}
+    .cart-item-actions .qty-btn{background:#f1f5f9;border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-weight:700;transition:background .2s}
+    .cart-item-actions .qty-btn:hover{background:#e2e8f0}
+    .cart-item-actions .remove-btn{background:none;border:none;color:#ef4444;font-size:18px;cursor:pointer;padding:4px}
+    .cart-footer{padding-top:16px;border-top:1px solid #e2e8f0}
+    .cart-total{display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:700;margin-bottom:12px}
+    .checkout-btn{width:100%;padding:14px;background:#25D366;color:#fff;border:none;border-radius:999px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s}
+    .checkout-btn:hover{background:#128C7E}
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#facc15;padding:12px 24px;border-radius:999px;font-weight:600;font-size:14px;z-index:1200;animation:toastIn .3s ease}
+    @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+    footer{background:#0f172a;color:#64748b;text-align:center;padding:20px 24px;font-size:13px}
+    @media(max-width:768px){
+      .hamburger{display:flex}
+      .navbar{position:fixed;top:60px;left:0;right:0;background:#0f172a;flex-direction:column;padding:16px 24px;gap:12px;display:none;border-top:1px solid #1e293b}
+      .navbar.open{display:flex}
+      .hero{flex-direction:column;text-align:center;padding:40px 20px;min-height:auto}
+      .hero-left p{max-width:100%}
+      .hero-buttons{justify-content:center}
+      .hero-right img{width:200px}
+      .contact-row{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
 <header class="header">
   <div class="logo">Konter Mawasangka</div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -330,6 +121,7 @@
     <a href="#home">Beranda</a>
     <a href="#kategori">Kategori</a>
     <a href="#produk">Produk</a>
+    <a href="#lokasi">Lokasi</a>
     <a href="#kontak">Kontak</a>
   </nav>
   <div class="header-actions">
@@ -341,25 +133,16 @@
 <!-- ===== HERO ===== -->
 <section class="hero" id="home">
   <div class="hero-left">
-    <span class="badge">Service HP Profesional</span>
+    <span class="badge">📍 Teluk Wondama, Papua Barat</span>
     <h1>Konter Mawasangka</h1>
-    <p>Ganti LCD, Baterai, Flashing, dan Aksesoris Smartphone di Teluk Wondama. Cepat, Bergaransi, Terpercaya.</p>
+    <p>Service smartphone, ganti LCD, baterai, flashing, dan aksesoris terlengkap. Cepat, bergaransi, terpercaya.</p>
     <div class="hero-buttons">
       <a href="#produk" class="btn-primary">Lihat Produk</a>
       <a href="https://wa.me/6287833718917" class="btn-outline" target="_blank">Chat WhatsApp</a>
     </div>
   </div>
   <div class="hero-right">
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <rect width="200" height="200" fill="#1e293b" rx="20"/>
-      <rect x="50" y="20" width="100" height="140" rx="12" fill="#0f172a"/>
-      <rect x="60" y="30" width="80" height="100" rx="6" fill="#1e293b"/>
-      <rect x="60" y="30" width="80" height="100" rx="6" fill="#facc15" opacity=".15"/>
-      <circle cx="100" cy="150" r="8" fill="#0f172a"/>
-      <path d="M80 40h40v60H80z" fill="#facc15" opacity=".25"/>
-      <rect x="85" y="50" width="30" height="30" rx="4" fill="#facc15" opacity=".4"/>
-      <rect x="90" y="55" width="20" height="20" rx="2" fill="#0f172a"/>
-    </svg>
+    <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?w=640&q=80" alt="Service HP" loading="lazy">
   </div>
 </section>
 
@@ -412,19 +195,25 @@
 <section id="tentang">
   <h2>Tentang Kami</h2>
   <div class="about-text">
-    <p>Konter Mawasangka adalah pusat servis smartphone dan penjualan aksesoris terlengkap di Teluk Wondama, Papua Barat. Kami melayani perbaikan semua jenis HP Android & iPhone dengan harga terjangkau.</p>
-    <p>Kami mengutamakan kecepatan, kejujuran, dan garansi servis untuk setiap pelanggan. Sudah 500+ HP berhasil kami perbaiki sejak 2022.</p>
+    <p>Konter Mawasangka adalah pusat servis smartphone dan penjualan aksesoris terlengkap di Teluk Wondama, Papua Barat. Melayani perbaikan semua jenis HP Android & iPhone dengan harga terjangkau. Kami mengutamakan kecepatan, kejujuran, dan garansi servis untuk setiap pelanggan.</p>
+    <p>Sudah <strong>500+ HP</strong> berhasil kami perbaiki sejak 2022. Berpengalaman dengan berbagai merek: Samsung, Xiaomi, Oppo, Vivo, iPhone, dan lainnya.</p>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section id="kontak">
-  <h2>📞 Hubungi Kami</h2>
-  <div class="contact-card">
-    <p><strong>📍 Alamat:</strong> Manggurai, Teluk Wondama, Papua Barat</p>
-    <p><strong>💬 WhatsApp:</strong> +62 878-3371-8917</p>
-    <p><strong>⏰ Jam:</strong> Senin–Sabtu, 08:00–20:00 WIT</p>
-    <a class="wa-btn" href="https://wa.me/6287833718917" target="_blank">Chat WhatsApp</a>
+<!-- ===== LOCATION + CONTACT ===== -->
+<section id="lokasi">
+  <h2>📍 Lokasi & Kontak</h2>
+  <div class="contact-row">
+    <div class="maps-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d315!2d122.288381!3d-5.286364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0!2zNcKwMTcnMTAuOSJTIDEyMsKwMTcnMTguMiJF!5e1!3m2!1sid!2sid!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="contact-card">
+      <p><strong>📍 Alamat:</strong> Manggurai, Teluk Wondama, Papua Barat</p>
+      <p><strong>💬 WhatsApp:</strong> +62 878-3371-8917</p>
+      <p><strong>⏰ Jam:</strong> Senin–Sabtu, 08:00–20:00 WIT</p>
+      <a class="wa-btn" href="https://wa.me/6287833718917" target="_blank">Chat WhatsApp</a>
+      <p style="margin-top:12px;font-size:12px;color:#94a3b8">Atau klik navigasi di Maps untuk petunjuk jalan</p>
+    </div>
   </div>
 </section>
 
@@ -435,14 +224,9 @@
       <h2>🛒 Keranjang</h2>
       <button class="close-btn" id="closeCart">✕</button>
     </div>
-    <div class="cart-body" id="cartBody">
-      <div class="cart-empty">Keranjang masih kosong</div>
-    </div>
+    <div class="cart-body" id="cartBody"><div class="cart-empty">Keranjang masih kosong</div></div>
     <div class="cart-footer">
-      <div class="cart-total">
-        <span>Total</span>
-        <span>Rp <span id="cartTotal">0</span></span>
-      </div>
+      <div class="cart-total"><span>Total</span><span>Rp <span id="cartTotal">0</span></span></div>
       <button class="checkout-btn" id="checkoutBtn">✅ Checkout WhatsApp</button>
     </div>
   </div>
@@ -454,198 +238,109 @@
 </footer>
 
 <script>
-// ===== PRODUCT DATA =====
+// Produk dengan foto real dari Unsplash (free, commercial use, no attribution)
 const products = [
-  { id: 1, name: "LCD Samsung A12", price: 380000, category: "lcd", emoji: "📱", desc: "Original quality" },
-  { id: 2, name: "Baterai iPhone 11", price: 250000, category: "baterai", emoji: "🔋", desc: "Kapasitas 3110mAh" },
-  { id: 3, name: "Fast Charger 20W", price: 85000, category: "charger", emoji: "⚡", desc: "PD + Quick Charge" },
-  { id: 4, name: "Headset Bluetooth", price: 120000, category: "headset", emoji: "🎧", desc: "TWS Stereo" },
-  { id: 5, name: "Service Ganti LCD", price: 150000, category: "service", emoji: "🛠️", desc: "Jasa + sparepart" },
-  { id: 6, name: "Power Bank 10000mAh", price: 185000, category: "charger", emoji: "🔋", desc: "Dual input" },
-  { id: 7, name: "Softcase iPhone", price: 35000, category: "aksesoris", emoji: "📱", desc: "Anti gores" },
-  { id: 8, name: "Kabel USB Type-C", price: 25000, category: "charger", emoji: "🔌", desc: "1 meter" },
-  { id: 9, name: "Tempered Glass", price: 30000, category: "aksesoris", emoji: "🛡️", desc: "Anti pecah" },
+  { id: 1, name: "LCD Samsung A12", price: 380000, category: "lcd", img: "https://images.unsplash.com/photo-1735854706111-3c5fbab753e5?w=400&q=80", desc: "Original quality" },
+  { id: 2, name: "Baterai iPhone 11", price: 250000, category: "baterai", img: "https://images.unsplash.com/photo-1599669454699-248893623440?w=400&q=80", desc: "Kapasitas 3110mAh" },
+  { id: 3, name: "Fast Charger 20W", price: 85000, category: "charger", img: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&q=80", desc: "PD + Quick Charge" },
+  { id: 4, name: "Headset Bluetooth", price: 120000, category: "headset", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80", desc: "TWS Stereo" },
+  { id: 5, name: "Service Ganti LCD", price: 150000, category: "service", img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80", desc: "Jasa + sparepart" },
+  { id: 6, name: "Power Bank 10000mAh", price: 185000, category: "charger", img: "https://images.unsplash.com/photo-1609592425209-c5f2b2087a99?w=400&q=80", desc: "Dual input" },
+  { id: 7, name: "Softcase iPhone", price: 35000, category: "aksesoris", img: "https://images.unsplash.com/photo-1602526432604-029a709e131c?w=400&q=80", desc: "Anti gores" },
+  { id: 8, name: "Kabel USB Type-C", price: 25000, category: "charger", img: "https://images.unsplash.com/photo-1533772036716-d3f06e49a46d?w=400&q=80", desc: "1 meter" },
+  { id: 9, name: "Tempered Glass", price: 30000, category: "aksesoris", img: "https://images.unsplash.com/photo-1512054502232-10a0a035d672?w=400&q=80", desc: "Anti pecah" },
 ];
 
 let cart = [];
 let filtered = [...products];
 
-const $ = (s) => document.querySelector(s);
-const $$ = (s) => document.querySelectorAll(s);
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const grid = $('#productGrid');
+const input = $('#searchInput');
+const modal = $('#cartModal');
+const body = $('#cartBody');
+const total = $('#cartTotal');
+const count = $('#cartCount');
 
-const productGrid = $('#productGrid');
-const searchInput = $('#searchInput');
-const cartModal = $('#cartModal');
-const cartBody = $('#cartBody');
-const cartTotal = $('#cartTotal');
-const cartCount = $('#cartCount');
-
-// ===== RENDER PRODUCTS =====
-function renderProducts() {
-  productGrid.innerHTML = filtered.map(p => `
+function render() {
+  grid.innerHTML = filtered.map(p => `
     <div class="product-card">
-      <div class="thumb">${p.emoji}</div>
+      <div class="thumb"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
       <h3>${p.name}</h3>
       <div class="price">Rp ${p.price.toLocaleString('id-ID')}</div>
       <div class="desc">${p.desc}</div>
       <button class="add-btn" data-id="${p.id}">+ Tambah</button>
     </div>
   `).join('');
-
-  $$('.add-btn').forEach(btn => {
-    btn.onclick = () => addToCart(parseInt(btn.dataset.id));
-  });
+  $$('.add-btn').forEach(b => b.onclick = () => add(parseInt(b.dataset.id)));
 }
 
-// ===== SEARCH =====
-searchInput.addEventListener('input', () => {
-  const q = searchInput.value.toLowerCase();
-  filtered = products.filter(p =>
-    p.name.toLowerCase().includes(q) || p.category.includes(q)
-  );
-  renderProducts();
+input.addEventListener('input', () => {
+  const q = input.value.toLowerCase();
+  filtered = products.filter(p => p.name.toLowerCase().includes(q) || p.category.includes(q));
+  render();
 });
 
-// ===== CART =====
-function addToCart(id) {
+function add(id) {
   const p = products.find(x => x.id === id);
   if (!p) return;
-  const existing = cart.find(x => x.id === id);
-  if (existing) existing.qty++;
-  else cart.push({ ...p, qty: 1 });
-  updateCartBadge();
-  toast(`${p.name} ditambahkan!`);
+  const e = cart.find(x => x.id === id);
+  if (e) e.qty++; else cart.push({...p, qty: 1});
+  badge(); toast(p.name + ' ditambahkan!');
 }
 
-function updateCartBadge() {
-  const total = cart.reduce((s, x) => s + x.qty, 0);
-  cartCount.textContent = total;
+function badge() { count.textContent = cart.reduce((s, x) => s + x.qty, 0); }
+
+function openCart() {
+  if (!cart.length) { body.innerHTML = '<div class="cart-empty">🛒 Keranjang masih kosong</div>'; total.textContent = '0'; modal.classList.add('open'); return; }
+  let html = '', t = 0;
+  cart.forEach(item => {
+    const sub = item.price * item.qty; t += sub;
+    html += `<div class="cart-item"><div class="cart-item-info"><strong>${item.name}</strong><small>Rp ${(+item.price).toLocaleString('id-ID')} × ${item.qty}</small></div><div class="cart-item-actions"><span style="font-weight:700">Rp ${sub.toLocaleString('id-ID')}</span><button class="qty-btn" data-action="dec" data-id="${item.id}">−</button><span>${item.qty}</span><button class="qty-btn" data-action="inc" data-id="${item.id}">+</button><button class="remove-btn" data-id="${item.id}">✕</button></div></div>`;
+  });
+  body.innerHTML = html; total.textContent = t.toLocaleString('id-ID');
+  $$('.qty-btn').forEach(b => b.onclick = () => {
+    const id = parseInt(b.dataset.id);
+    if (b.dataset.action === 'inc') { const x = cart.find(c => c.id === id); if (x) x.qty++; }
+    else { const i = cart.findIndex(c => c.id === id); if (i !== -1) { if (cart[i].qty > 1) cart[i].qty--; else cart.splice(i, 1); } }
+    badge(); openCart();
+  });
+  $$('.remove-btn').forEach(b => b.onclick = () => { const i = cart.findIndex(c => c.id === parseInt(b.dataset.id)); if (i !== -1) cart.splice(i, 1); badge(); openCart(); });
+  modal.classList.add('open');
 }
 
-function renderCart() {
-  if (!cart.length) {
-    cartBody.innerHTML = '<div class="cart-empty">🛒 Keranjang masih kosong</div>';
-    cartTotal.textContent = '0';
-    return;
-  }
-  let html = '';
-  let total = 0;
-  cart.forEach((item, i) => {
-    const sub = item.price * item.qty;
-    total += sub;
-    html += `
-      <div class="cart-item">
-        <div class="cart-item-info">
-          <strong>${item.name}</strong>
-          <small>Rp ${item.price.toLocaleString('id-ID')} × ${item.qty}</small>
-        </div>
-        <div class="cart-item-actions">
-          <span style="font-weight:700;">Rp ${sub.toLocaleString('id-ID')}</span>
-          <button class="qty-btn" data-action="dec" data-id="${item.id}">−</button>
-          <span>${item.qty}</span>
-          <button class="qty-btn" data-action="inc" data-id="${item.id}">+</button>
-          <button class="remove-btn" data-id="${item.id}">✕</button>
-        </div>
-      </div>
-    `;
-  });
-  cartBody.innerHTML = html;
-  cartTotal.textContent = total.toLocaleString('id-ID');
+$('#cartBtn').onclick = openCart;
+$('#closeCart').onclick = () => modal.classList.remove('open');
+modal.onclick = e => { if (e.target === modal) modal.classList.remove('open'); };
 
-  // Bind quantity
-  $$('.qty-btn').forEach(btn => {
-    btn.onclick = () => {
-      const id = parseInt(btn.dataset.id);
-      if (btn.dataset.action === 'inc') {
-        const item = cart.find(x => x.id === id);
-        if (item) item.qty++;
-      } else {
-        const idx = cart.findIndex(x => x.id === id);
-        if (idx !== -1) {
-          if (cart[idx].qty > 1) cart[idx].qty--;
-          else cart.splice(idx, 1);
-        }
-      }
-      updateCartBadge();
-      renderCart();
-    };
-  });
-
-  // Bind remove
-  $$('.remove-btn').forEach(btn => {
-    btn.onclick = () => {
-      const idx = cart.findIndex(x => x.id === parseInt(btn.dataset.id));
-      if (idx !== -1) cart.splice(idx, 1);
-      updateCartBadge();
-      renderCart();
-    };
-  });
-}
-
-// ===== CART MODAL =====
-$('#cartBtn').onclick = () => {
-  renderCart();
-  cartModal.classList.add('open');
-};
-$('#closeCart').onclick = () => cartModal.classList.remove('open');
-cartModal.onclick = (e) => { if (e.target === cartModal) cartModal.classList.remove('open'); };
-
-// ===== CHECKOUT =====
 $('#checkoutBtn').onclick = () => {
   if (!cart.length) { toast('Keranjang kosong!'); return; }
-  let msg = 'Halo Konter Mawasangka!%0A%0ASaya ingin memesan:%0A';
-  let total = 0;
-  cart.forEach(item => {
-    const sub = item.price * item.qty;
-    total += sub;
-    msg += `- ${item.name} (${item.qty}x) = Rp ${sub.toLocaleString('id-ID')}%0A`;
-  });
-  msg += `%0A*Total: Rp ${total.toLocaleString('id-ID')}*%0A%0ATolong info pembayaran. Terima kasih.`;
+  let msg = 'Halo Konter Mawasangka!%0A%0ASaya ingin memesan:%0A', t = 0;
+  cart.forEach(item => { const sub = item.price * item.qty; t += sub; msg += `- ${item.name} (${item.qty}x) = Rp ${sub.toLocaleString('id-ID')}%0A`; });
+  msg += `%0A*Total: Rp ${t.toLocaleString('id-ID')}*%0A%0ATolong info pembayaran. Terima kasih.`;
   window.open(`https://wa.me/6287833718917?text=${msg}`, '_blank');
 };
 
-// ===== CATEGORY FILTER =====
-$$('.category-card').forEach(btn => {
-  btn.onclick = () => {
-    const cat = btn.dataset.category;
-    filtered = products.filter(p => p.category === cat);
-    if (!filtered.length) filtered = [...products];
-    renderProducts();
-    searchInput.value = '';
-    document.getElementById('produk').scrollIntoView({ behavior: 'smooth' });
-    closeNav();
-  };
+$$('.category-card').forEach(b => b.onclick = () => {
+  const c = b.dataset.category;
+  filtered = products.filter(p => p.category === c);
+  if (!filtered.length) filtered = [...products];
+  render(); input.value = '';
+  document.getElementById('produk').scrollIntoView({behavior: 'smooth'});
+  closeNav();
 });
 
-// ===== NAV RESET =====
-$$('.navbar a').forEach(a => {
-  a.onclick = () => {
-    if (a.getAttribute('href') === '#produk') {
-      filtered = [...products];
-      renderProducts();
-      searchInput.value = '';
-    }
-    closeNav();
-  };
-});
+$$('.navbar a').forEach(a => { a.onclick = () => { if (a.getAttribute('href') === '#produk') { filtered = [...products]; render(); input.value = ''; } closeNav(); }; });
 
-// ===== HAMBURGER =====
 const hamburger = $('#hamburger');
 const navbar = $('#navbar');
 hamburger.onclick = () => navbar.classList.toggle('open');
 function closeNav() { navbar.classList.remove('open'); }
 
-// ===== TOAST =====
-function toast(msg) {
-  const el = document.createElement('div');
-  el.className = 'toast';
-  el.textContent = msg;
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 2000);
-}
+function toast(msg) { const el = document.createElement('div'); el.className = 'toast'; el.textContent = msg; document.body.appendChild(el); setTimeout(() => el.remove(), 2000); }
 
-// ===== INIT =====
-renderProducts();
+render();
 </script>
 </body>
 </html>
